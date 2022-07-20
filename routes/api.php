@@ -23,4 +23,5 @@ Route::group([
     'namespace'  => 'App\Http\Controllers\Api\v1\External'
 ], function () {
     Route::apiResource('books', BookController::class);
+    Route::apiResource('authors', AuthorController::class);
 });
