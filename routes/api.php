@@ -24,4 +24,5 @@ Route::group([
 ], function () {
     Route::apiResource('books', BookController::class);
     Route::apiResource('authors', AuthorController::class);
+    Route::apiResource('publishers', PublisherController::class);
 });
