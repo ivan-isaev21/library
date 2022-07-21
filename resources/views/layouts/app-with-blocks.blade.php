@@ -25,7 +25,10 @@
     @include("layouts.parts.footer")
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>    
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script>
+        const base_url = "{{config('app.url')}}";
+    </script>    
     @yield('page_scripts')
 </body>
 
