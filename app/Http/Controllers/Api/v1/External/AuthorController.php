@@ -12,7 +12,7 @@ class AuthorController extends Controller
 {
     public function index()
     {
-        return AuthorResource::collection(Author::paginate(10));
+        return AuthorResource::collection(Author::all());
     }
 
     public function store(\App\Http\Requests\CreateAuthorRequest $request)
