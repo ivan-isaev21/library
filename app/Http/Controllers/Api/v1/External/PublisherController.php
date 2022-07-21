@@ -12,7 +12,7 @@ class PublisherController extends Controller
 {    
     public function index()
     {
-        return PublisherResource::collection(Publisher::paginate(10));
+        return PublisherResource::collection(Publisher::all());
     }
     
     public function store(\App\Http\Requests\CreatePublisherRequest $request)
