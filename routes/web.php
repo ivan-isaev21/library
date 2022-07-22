@@ -17,6 +17,10 @@ Route::get('/', [\App\Http\Controllers\Library\LibraryController::class, 'index'
 Route::get('/books/{book}/edit', [\App\Http\Controllers\Library\LibraryController::class, 'edit'])->name('books.edit');
 Route::get('/books/create', [\App\Http\Controllers\Library\LibraryController::class, 'create'])->name('books.create');
 
+Route::get('/publishers', [\App\Http\Controllers\Library\PublisherController::class, 'index'])->name('publishers.index');
+Route::get('/publishers/{publisher}/edit', [\App\Http\Controllers\Library\PublisherController::class, 'edit'])->name('publishers.edit');
+Route::get('/publishers/create', [\App\Http\Controllers\Library\PublisherController::class, 'create'])->name('publishers.create');
+
 Auth::routes();
 
 
