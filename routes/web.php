@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\Library\LibraryController::class, 'index'])->name('home');
-Route::get('/books/{book}/edit', [\App\Http\Controllers\Library\LibraryController::class, 'edit']);
+Route::get('/books/{book}/edit', [\App\Http\Controllers\Library\LibraryController::class, 'edit'])->name('books.edit');
+Route::get('/books/create', [\App\Http\Controllers\Library\LibraryController::class, 'create'])->name('books.create');
 
 Auth::routes();
 
