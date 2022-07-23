@@ -8,9 +8,6 @@
 
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
 
                     @guest
                     @if (Route::has('login'))
@@ -24,10 +21,19 @@
                     </li>
                     @endif
                     @else
+                    <li class="nav-item {{ request()->is('books*') ? 'active' : '' }}">
+                        <a class="nav-link " href="{{route('web.books.index')}}">Books</a>
+                    </li>
+
+                    <li class="nav-item {{ request()->is('publishers*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{route('web.publishers.index')}}">Publishers</a>
+                    </li>
+                    <li class="nav-item {{ request()->is('authors*') ? 'active' : '' }} ">
+                        <a class="nav-link" href="{{route('web.authors.index')}}">Authors</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Action</a>                            
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>
                         </div>
@@ -36,7 +42,7 @@
                         </form>
                     </li>
                     @endguest
-                    
+
                 </ul>
             </div>
         </div>
