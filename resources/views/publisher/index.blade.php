@@ -8,7 +8,7 @@
 @section('content')
 <div class="album py-5 bg-light">
     <div class="container">
-        <div class="mb-3"><a href="{{route('publishers.create')}}" class="btn btn-success">Add new publisher</a></div>
+        <div class="mb-3"><a href="{{route('web.publishers.create')}}" class="btn btn-success">Add new publisher</a></div>
 
         <div class="table-responsive">
             <table id="publishers" class="table table-striped table-bordered table-sm" style="width:100%;">
