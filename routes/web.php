@@ -13,14 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\Library\LibraryController::class, 'index'])->name('home');
-Route::get('/books/{book}/edit', [\App\Http\Controllers\Library\LibraryController::class, 'edit'])->name('books.edit');
-Route::get('/books/create', [\App\Http\Controllers\Library\LibraryController::class, 'create'])->name('books.create');
+Route::get('/', [\App\Http\Controllers\Library\LibraryController::class, 'home'])->name('home');
 
-Route::get('/publishers', [\App\Http\Controllers\Library\PublisherController::class, 'index'])->name('publishers.index');
-Route::get('/publishers/{publisher}/edit', [\App\Http\Controllers\Library\PublisherController::class, 'edit'])->name('publishers.edit');
-Route::get('/publishers/create', [\App\Http\Controllers\Library\PublisherController::class, 'create'])->name('publishers.create');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/books', [\App\Http\Controllers\Library\LibraryController::class, 'index'])->name('web.books.index');
+    Route::get('/books/{book}/edit', [\App\Http\Controllers\Library\LibraryController::class, 'edit'])->name('web.books.edit');
+    Route::get('/books/create', [\App\Http\Controllers\Library\LibraryController::class, 'create'])->name('web.books.create');
+
+    Route::get('/publishers', [\App\Http\Controllers\Library\PublisherController::class, 'index'])->name('web.publishers.index');
+    Route::get('/publishers/{publisher}/edit', [\App\Http\Controllers\Library\PublisherController::class, 'edit'])->name('web.publishers.edit');
+    Route::get('/publishers/create', [\App\Http\Controllers\Library\PublisherController::class, 'create'])->name('web.publishers.create');
+
+    Route::get('/authors', [\App\Http\Controllers\Library\AuthorController::class, 'index'])->name('web.authors.index');
+    Route::get('/authors/{author}/edit', [\App\Http\Controllers\Library\AuthorController::class, 'edit'])->name('web.authors.edit');
+    Route::get('/authors/create', [\App\Http\Controllers\Library\AuthorController::class, 'create'])->name('web.authors.create');
+});
 
 Auth::routes();
-
-

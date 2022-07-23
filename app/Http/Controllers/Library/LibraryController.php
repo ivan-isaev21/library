@@ -10,6 +10,9 @@ use App\Http\Resources\BookResource;
 
 class LibraryController extends Controller
 {
+    public function home(){
+        return view("library.home");
+    }
     public function index()
     {
         return view("library.index");
